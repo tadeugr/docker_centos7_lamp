@@ -1,8 +1,14 @@
 FROM centos:7
 
-# Install Required RPM Packages
-RUN yum install httpd -y; yum clean all
-RUN yum install mariadb-server mariadb -y; yum clean all
+RUN yum -y update
+
+RUN yum -y install wget which nano openssh-server git mysql-server mysql httpd php-mysql \
+        php-gd php-mcrypt php-zip php-xml php-iconv php-curl php-soap php-simplexml \
+			  php-pdo php-dom php-cli tar \
+			  php-hash php-mysql vixie-cron backupninja duplicity dialog
+
+RUN yum -y install httpd
+RUN yum install mariadb-server mariadb -y; yum lcean all
 RUN yum install php php-mysqli -y; yum clean all
 
 # Initialize Database Directory

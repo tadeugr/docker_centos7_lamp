@@ -20,7 +20,7 @@ RUN yum -y install wget tar gcc telnet
 
 # Install supervisord
 RUN yum --enablerepo=epel -y install supervisor
-RUN mv -f /etc/supervisord.conf /etc/supervisord.conf.BKP
+RUN mv -f /etc/supervisord.conf /etc/supervisord.conf-BKP
 ADD supervisord.conf /etc/
 
 # Install rsyslogd

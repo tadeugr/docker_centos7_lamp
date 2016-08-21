@@ -16,7 +16,7 @@ RUN yum -y install epel-release
 RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 
 # Install basic packages
-RUN yum -y install wget tar gcc telnet
+RUN yum -y install wget tar gcc telnet nano
 
 # Install supervisord
 RUN yum --enablerepo=epel -y install supervisor

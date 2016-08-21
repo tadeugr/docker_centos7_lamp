@@ -14,5 +14,5 @@ RUN systemctl enable httpd.service
 # Enable MySQL/MariaDB
 RUN systemctl enable mariadb.service
 
-EXPOSE 80
+EXPOSE 80 443
 CMD ["/usr/sbin/init"]

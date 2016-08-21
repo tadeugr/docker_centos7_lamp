@@ -33,7 +33,7 @@ RUN cp -a /etc/pam.d/crond /etc/pam.d/crond-BKP
 RUN sed -i -e 's/^\(session\s\+required\s\+pam_loginuid\.so\)/#\1/' /etc/pam.d/crond
 
 # Install sshd
-RUN yum install -y openssh-server sudo
+RUN yum install -y openssh-server openssh-clients sudo
 # no PAM
 # http://stackoverflow.com/questions/18173889/cannot-access-centos-sshd-on-docker
 RUN cp -a /etc/ssh/sshd_config /etc/ssh/sshd_config-BKP

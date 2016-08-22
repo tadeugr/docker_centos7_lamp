@@ -69,7 +69,10 @@ php70w-mbstring php70w-mysql php70w-tidy php70w-soap
 
 EXPOSE 80 443 22
 
-RUN bin/setup-services.sh
+RUN mkdir /root/install
+ADD bin/setup-services.sh /root/install
+RUN chmod +rx /root/install/*
+RUN /root/install/setup-services.sh
 
 # ENTRYPOINT ["/usr/bin/supervisord"] does not work.
 # --> "Error: positional arguments are not supported"

@@ -21,7 +21,7 @@ RUN yum -y install wget tar gcc telnet nano
 # Install supervisord
 RUN yum --enablerepo=epel -y install supervisor
 RUN mv -f /etc/supervisord.conf /etc/supervisord.conf-BKP
-ADD supervisord.conf /etc/
+ADD etc/supervisord.conf /etc/
 
 # Install rsyslogd
 RUN yum install -y rsyslog
@@ -68,6 +68,8 @@ php70w-mbstring php70w-mysql php70w-tidy php70w-soap
 #RUN systemctl enable mariadb.service
 
 EXPOSE 80 443 22
+
+RUN bin/setup-services.sh
 
 # ENTRYPOINT ["/usr/bin/supervisord"] does not work.
 # --> "Error: positional arguments are not supported"

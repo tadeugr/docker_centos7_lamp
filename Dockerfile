@@ -72,7 +72,7 @@ EXPOSE 80 443 22
 RUN mkdir /root/install
 ADD bin/setup-services.sh /root/install
 RUN chmod +rx /root/install/*
-RUN /root/install/setup-services.sh
+#RUN /root/install/setup-services.sh
 
 # ENTRYPOINT ["/usr/bin/supervisord"] does not work.
 # --> "Error: positional arguments are not supported"

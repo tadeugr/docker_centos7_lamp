@@ -16,7 +16,7 @@ RUN yum -y install epel-release
 RUN rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm
 
 # Install basic packages
-RUN yum -y install wget tar gcc telnet nano
+RUN yum -y install wget tar gcc make pcre-devel telnet nano
 
 # Install supervisord
 RUN yum --enablerepo=epel -y install supervisor
@@ -58,7 +58,7 @@ RUN echo -e '\nDefaults:%wheel !requiretty' >> /etc/sudoers
 # Install LAMP
 RUN yum -y install mariadb-server php70w php70w-devel php70w-mysql php70w-gd \
 php70w-pear php70w-cli php70w-pdo php70w-xml php70w-process php70w-mcrypt \
-php70w-mbstring php70w-mysql php70w-tidy php70w-soap
+php70w-mbstring php70w-mysql php70w-tidy php70w-soap git 
 
 # Initialize Database Directory
 #RUN /usr/libexec/mariadb-prepare-db-dir
